@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <!-- Step 1 - Include the fusioncharts core library -->
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <!-- Step 2 - Include the fusion theme -->
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" style=color:yellowgreen>
+            <div class="col-md-12 jumbotron text-center">
+                <div class="box">
+                    <marquee behavior="scroll" direction="left">A place where you can find cheapest,nearest and your favorite Gas stations in your viccinity!!</marquee>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="topnav">
+                    <a class="active" href="#home">Home</a>
+                    <a href="News.html">News</a>
+                    <a href="Map.html">US Map</a>
+                    <a href="charts.html">Charts</a>
+                    <a href="Years">Years</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5> {{Gas_info.Crude_Heading }} </h5>
+                <p> {{Gas_info.Crude_Paragraph }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box">
+                    <img src="{{ Gas_info.Crude_Image_1 }}" alt="Featured image" ; style="width: 100%;height: 100%;">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="box">
+                    <img src="{{ Gas_info.Crude_Image_2 }}" alt="Featured image" ; style="width: 90%;height: 90%;">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{ Gas_info.Crude_Paragraph2 }}</p>
+                <p>{{Gas_info.Last_Heading}}</p>
+                <p>{{ Gas_info.Second_Last_Paragraph }}</p>
+                <p>{{ Gas_info.Last_Paragraph }}</p>
+                <div class="box">
+                    <img src="{{ Gas_info.Crude_Image_3 }}" alt="Featured image" ; style="width: 50%;height: 50%;">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{Gas_info.Heading}}</h1> {{Gas_info.Table | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{Gas_info.Gasoline_Heading}}</h1>
+                {{Gas_info.Gasoline_Table | safe}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{Gas_info.Diesel_Heading }}</h1>
+                {{Gas_info.Diesel_Table | safe}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 ">
+                <div class="box " style="background-color: white; ">
+                    <img src="../static/images/chart.png " alt="Featured image " ; style="width: 80%;;height: 80%; ">
+                </div>
+            </div>
+            <div class="col-md-4 ">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

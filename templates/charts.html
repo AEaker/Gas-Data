@@ -1,0 +1,254 @@
+<html>
+<head>
+    <title>My first chart using FusionCharts Suite XT</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+
+    <!-- Include fusioncharts core library -->
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <!-- Include fusion theme -->
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" integrity="sha256-tHoAPGoNdhIR28YHl9DWLzeRfdwigkH7OCBXMrHXhoM=" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" style=color:yellowgreen>
+            <div class="col-md-12 jumbotron text-center">
+                <div class="box">
+                    <marquee behavior="scroll" direction="left">Welcome to GasTrick!! A place where you can find the nearest Gas Prices in your viccinity!!</marquee>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="topnav">
+                    <a class="active" href="/">Home</a>
+                    <a href="News.html">News</a>
+                    <a href="Map.html">US Map</a>
+                    <a href="charts.html">Charts</a>
+                    <a href="Years">Years</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=col-md-12>
+                <div id="chart-container">FusionCharts XT will load here!</div>
+                <br>
+                <text style="font-family:courier;">Crude oil and unfinished oils are reported by the PAD District in which they are processed; all other products are reported by the PAD District of entry. Crude oil includes imports for storage in the Stategic Petroleum Reserve. 
+      <br>On December 18, 2015, the U.S. enacted legislation authorizing the export of U.S. crude oil without a license. Exports to embargoed or sanctioned countries continue to require authorization. Prior to December 2015, crude oil exports were restricted to: (1) crude oil derived from fields under the State waters of Cook Inlet of Alaska; (2) Alaskan North Slope crude oil; (3) certain domestically produced crude oil destined for Canada; (4) shipments to U.S. territories; and (5) California crude oil to Pacific Rim countries
+    </text>
+                <br><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div id="Vehicle">
+
+                    </div>
+                    <br><br>
+                    <b> Total number of registered automobiles in the U.S. by state 2018</b>
+                    <br><br>
+                    <text style="font-family:courier">California had the most automobile registrations in 2018: More than 15 million such vehicles were registered in
+        <a href=" /statistics/183497/population-in-the-federal-states-of-the-us/" target="_blank">the most populous U.S. federal state</a>
+        " California also leads in terms of "
+        <a href="/statistics/634072/us-car-sales-by-key-state/" target="_blank">annual car sales </a>
+        with almost 887,000 sold in 2018. Additionally, California residents purchased about 568,400 crossover and sport-utility vehicles (CUVs and SUVs), some 313,600 pickups, and roughly 235,000 luxury and sports cars in 2018. 
+      </text>
+                    <br><br>
+                    <b> A walk in the light truck parc </b>
+                    <br><br>
+
+                    <text style="font-family:courier">U.S. automobile and truck registrations reached about 264 million units in 2018. The number of 
+      <a href="/statistics/738687/projected-us-vehicles-in-operation/" target="_blank">vehicles in operation </a>
+      in the United States is projected to increase to around 289 million units in the third quarter of 2019. 
+      <a href="/statistics/199980/us-truck-sales-since-1951/" target="_blank">Light truck retail sales increased </a>
+      from 10.6 million units in 2017 to a staggering 12.2 million units in 2019. These figures underpin the assumption that light trucks remain in high demand while customers seem to have
+      <a href="/statistics/199974/us-car-sales-since-1951/" target="_blank"> lost interest in cars: Just 4.7 million cars were sold in the United States in 2019. 
+      </a>
+      </text>
+                </div>
+            </div>
+        </div>
+       <!--Code for Multi -Level Pie chart--  -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Pie">
+                    <script type="text/javascript">
+                        FusionCharts.ready(function() {
+                            var chartObj = new FusionCharts({
+                                type: 'multilevelpie',
+                                renderAt: 'Pie',
+
+                                width: '900',
+                                height: '600',
+                                dataFormat: 'json',
+                                dataSource: {
+                                    "chart": {
+                                        "caption": "Crude Oil Production Breakup | Thousand Barrels",
+                                        "subcaption": "JUL-2020",
+                                        "showPlotBorder": "1",
+                                        "piefillalpha": "60",
+                                        // "basefontsize": "15",
+                                        "baseFontSize": "15",
+                                        "baseFontColor": "#000000",
+                                        "baseFontWeight": "100",
+                                        "baseFont": "outCnvBaseFont",
+                                        // "Helvetica Neue,Arial",
+                                        "pieborderthickness": "3",
+                                        "hoverfillcolor": "#CCCCCC",
+                                        "piebordercolor": "#FFFFFF",
+                                        "hoverfillcolor": "#CCCCCC",
+                                        "numberprefix": "$",
+                                        "plottooltext": "$label, $$valueK, $percentValue",
+                                        //Theme
+                                        "theme": "fusion",
+                                        "innerRadius": "30"
+                                    },
+                                    "category": [{
+                                        "label": "US{br}Crude{br}Oil{br}Production",
+                                        "color": "#ffffff",
+                                        "value": "340496",
+                                        "category": [{
+                                            "label": "East Coast",
+                                            "color": "#f8bd19",
+                                            "value": "2030",
+                                            "tooltext": "PADD1, $$valueK, $percentValue",
+                                            "category": [{
+                                                "label": "VA,PA,NY,FL",
+                                                "color": "#f8bd19",
+                                                "value": "1508"
+                                            }, ]
+                                        }, {
+                                            "label": "Midwest",
+                                            "color": "#33ccff",
+                                            "value": "53172",
+                                            "tooltext": "PADD2, $$valueK, $percentValue",
+                                            "category": [
+
+                                                {
+                                                    "label": "North Dakota",
+                                                    "color": "#33ccff",
+                                                    "value": "31900"
+                                                }, {
+                                                    "label": "KS,OH,SD,TE,IL,IA",
+                                                    "color": "#33ccff",
+                                                    "value": "6456"
+                                                }, {
+                                                    "label": "OK",
+                                                    "color": "#33ccff",
+                                                    "value": "14936"
+                                                },
+
+                                            ]
+                                        }, {
+                                            "label": "Gulf Coast",
+                                            "color": "#2ca02c",
+                                            "value": "233556",
+                                            "tooltext": "PADD3, $$valueKBarrels, $percentValue",
+                                            "category": [
+
+                                                {
+                                                    "label": "Louisiana",
+                                                    "color": "#2ca02c",
+                                                    "value": "3139"
+                                                }, {
+                                                    "label": "New Mexico",
+                                                    "color": "#2ca02c",
+                                                    "value": "30613"
+                                                }, {
+                                                    "label": "AR,AL",
+                                                    "color": "#2ca02c",
+                                                    "value": "664"
+                                                }, {
+                                                    "label": "Texas",
+                                                    "color": "#2ca02c",
+                                                    "value": "146773"
+                                                },
+
+                                                {
+                                                    "label": "Mississippi",
+                                                    "color": "#2ca02c",
+                                                    "value": "1258"
+                                                }, {
+                                                    "label": "Federal{br}Offshore{br}(PADD3)",
+                                                    "color": "#2ca02c",
+                                                    "value": "51108"
+                                                },
+
+                                            ]
+                                        }, {
+                                            "label": "Rocky Mountain",
+                                            "color": "#2e7b71",
+                                            "value": "25558",
+                                            "category": [{
+                                                    "label": "Montana",
+                                                    "color": "#2e7b71",
+                                                    "value": "1648"
+                                                }, {
+                                                    "label": "Colorado",
+                                                    "color": "#2e7b71",
+                                                    "value": "13955"
+                                                }, {
+                                                    "label": "Utah",
+                                                    "color": "#2e7b71",
+                                                    "value": "2607"
+                                                }, {
+                                                    "label": "Wyoming",
+                                                    "color": "#2e7b71",
+                                                    "value": "7348"
+                                                },
+
+                                            ]
+                                        }, {
+                                            "label": "West Coast,{br}AK,HI",
+                                            "color": "#d62728",
+                                            "value": "26181",
+                                            "category": [{
+                                                    "label": "Alaska",
+                                                    "color": "#d62728",
+                                                    "value": "13767"
+                                                }, {
+                                                    "label": "Arizona",
+                                                    "color": "#d62728",
+                                                    "value": "1"
+                                                }, {
+                                                    "label": "California",
+                                                    "color": "#d62728",
+                                                    "value": "12014"
+                                                },
+                                              
+                                            ]
+                                        }]
+                                    }]
+                                }
+                            });
+
+                            chartObj.render();
+                        });
+                    </script>
+                </div>
+                <br><br>
+                <text style="font-family:courier">
+  Crude oil production quantities are estimated by state and summed to the PADD and the U.S. level. 
+</text>
+            </div>
+        </div>
+    </div>
+<!-- Importing all the files and libraries required -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type=text/javascript src="../static/js/logic.js"></script>
+    <script type=text/javascript src="../static/js/chord.js"></script>
+    <script type=text/javascript src="../static/js/Vehicles.js"></script>
+</body>
+
+</html>
